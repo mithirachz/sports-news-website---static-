@@ -288,4 +288,35 @@ header, .slider-container, .news-slider {
   transform: translateZ(0);
 }
 
+/* ==================== MOBILE TOUCH SLIDER ==================== */
+@media (max-width: 768px) {
+  .news-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+  }
+
+  .news-card {
+    flex: 0 0 auto;
+    min-width: 250px;
+    margin-right: 1rem;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-card {
+    min-width: 200px;
+  }
+
+  .slider-container {
+    padding: 0.5rem 1rem;
+  }
+}
+
+
 
