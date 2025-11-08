@@ -318,5 +318,58 @@ header, .slider-container, .news-slider {
   }
 }
 
+/* MOBILE HEADER & NAV */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 0.5rem; /* less padding for smaller screens */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 4px 0;       /* remove horizontal spacing */
+    font-size: 0.9rem;   
+    padding: 0.4rem 0.6rem;
+    text-align: center;
+  }
+
+  .search-bar input {
+    width: 90%;          /* nearly full width */
+    max-width: none;
+  }
+
+  body {
+    padding-top: 150px;  /* adjust so content doesn’t hide under fixed header */
+  }
+}
+
+/* MOBILE NEWS SLIDER TOUCH SCROLL */
+@media (max-width: 768px) {
+  .news-container {
+    display: flex;
+    overflow-x: auto;      /* allow horizontal scroll */
+    scroll-snap-type: x mandatory; /* snap cards */
+    gap: 0.8rem;           /* small gap */
+    padding-bottom: 1rem;
+  }
+
+  .news-card {
+    flex: 0 0 80%;         /* each card takes most of the width */
+    min-width: 250px;      /* ensure cards don’t shrink too small */
+    scroll-snap-align: start;
+  }
+
+  .arrow {
+    display: none;         /* hide arrows on mobile */
+  }
+}
+
+
 
 
