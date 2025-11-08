@@ -1,0 +1,291 @@
+/* ==== Dark Mode + Liquid Glass Effect ==== */
+
+body {
+  font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top left, #23626f, #203a43, #2c5364);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background: rgba(22, 34, 33, 0.6);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  position: fixed; /* changed from sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Smooth hide effect */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+header.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+/* Ensure content doesn’t go under header */
+body {
+  margin: 0;
+  padding-top: 200px; /* Adjust depending on header height */
+}
+
+nav {
+  margin-top: 10px;
+}
+
+
+
+
+nav a {
+  color: #cfd9df;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #4acafd;
+}
+
+/* 🔍 Search bar styling */
+.search-bar {
+  margin-top: 10px;
+}
+
+.search-bar input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(119, 171, 223, 0.493);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+}
+
+.search-bar input::placeholder {
+  color: #ffffff;
+}
+
+.search-bar input:focus {
+  background: rgba(26, 99, 115, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* News grid */
+/* === SLIDER FUNCTIONALITY FIXED === */
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.news-container {
+  display: flex;
+  transition: transform 0.5 ease;
+  gap: 1rem;
+}
+
+.news-card {
+  flex: 0 0 calc((100% - 3rem) / 4); /* 4 visible cards */
+}
+
+/* Arrow buttons (dark theme) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e0f2f1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.arrow.left {
+  left: 0.75rem;
+}
+
+.arrow.right {
+  right: 0.75rem;
+}
+
+/* Hide arrows on small screens (optional) */
+@media (max-width: 768px) {
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .news-card {
+    flex: 0 0 calc(33.333% - 1rem); /* 3 cards */
+  }
+}
+
+@media (max-width: 768px) {
+  .news-card {
+    flex: 0 0 calc(50% - 1rem); /* 2 cards */
+  }
+}
+
+@media (max-width: 480px) {
+  .news-card {
+    flex: 0 0 100%; /* 1 card */
+  }
+}
+
+
+/* News cards with liquid glass effect */
+.news-card {
+  background: rgba(255, 255, 255, 0.12); /* subtle transparency */
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgb(0, 0, 0);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: inherit;  /* ✅ matches card corners */
+  border-top-right-radius: inherit;
+  display: block;
+}
+
+.news-card h2 {
+  margin: 15px 15px 10px;
+  color: #fff;
+}
+
+.news-card p {
+  margin: 0 15px 15px;
+  color: #d1d1d1;
+}
+
+.news-card a {
+  display: inline-block;
+  margin: 0 15px 20px;
+  color: #4acafd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(10px);
+  color: #bbb;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📰 Details section styling */
+.details-section {
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+
+.details-section h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #7ccbea;
+}
+
+.details-section p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.details-section img {
+  display: block;          /* allows margin auto to work */
+  margin: 20px auto ;       /* centers the image horizontally */
+  width: 80%;              /* makes it a bit smaller than full width */
+  border-radius: 0px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.details-section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgb(0, 0, 0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* ⚡ Performance boost */
+header, .slider-container, .news-slider {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+
